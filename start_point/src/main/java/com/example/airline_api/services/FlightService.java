@@ -8,6 +8,7 @@ import com.example.airline_api.repositories.FlightRepository;
 import com.example.airline_api.repositories.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,7 @@ public class FlightService {
             return flightRepository.save(flight);
         }
 
+    @Transactional
     public Flight addPassenger(FlightDTO flightDTO, Long id) {
         Flight updatedFlight = flightRepository.findById(id).get();
         updatedFlight.setDestination(flightDTO.getDestination());
@@ -60,7 +62,7 @@ public class FlightService {
         }
         return flightRepository.save(updatedFlight);
     }
-
+    
     public void deleteFlight(Long id) {
         flightRepository.deleteById(id);
     }

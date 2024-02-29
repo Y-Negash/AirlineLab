@@ -7,6 +7,7 @@ import com.example.airline_api.repositories.FlightRepository;
 import com.example.airline_api.repositories.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class PassengerService {
         return passengerRepository.findById(id).get();
     }
 
-
+    @Transactional
     public Passenger addPassenger(PassengerDTO passengerDTO) {
 
         Passenger passenger = new Passenger(passengerDTO.getName(), passengerDTO.getEmail());
