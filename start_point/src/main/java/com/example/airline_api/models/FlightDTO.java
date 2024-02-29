@@ -1,6 +1,7 @@
 package com.example.airline_api.models;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FlightDTO {
@@ -9,14 +10,14 @@ public class FlightDTO {
         private int capacity;
         private String departureDate;
         private String departureTime;
-        private List<Long> passenger_id;
+        private List<Long> passenger_ids;
 
-    public FlightDTO(String destination, int capacity, String departureDate, String departureTime, List<Long> passenger_id) {
+    public FlightDTO(String destination, int capacity, String departureDate, String departureTime) {
         this.destination = destination;
         this.capacity = capacity;
         this.departureDate = departureDate;
         this.departureTime = departureTime;
-        this.passenger_id = passenger_id;
+        this.passenger_ids = new ArrayList<>();
     }
 
     public FlightDTO() {
@@ -54,11 +55,11 @@ public class FlightDTO {
         this.departureTime = departureTime;
     }
 
-    public List<Long> getPassenger_id() {
-        return passenger_id;
+    public List<Long> getPassenger_ids() {
+        return passenger_ids;
     }
 
-    public void setPassenger_id(List<Long> passenger_id) {
-        this.passenger_id = passenger_id;
+    public void setPassenger_ids(List<Long> passenger_ids) {
+        this.passenger_ids = passenger_ids;
     }
 }

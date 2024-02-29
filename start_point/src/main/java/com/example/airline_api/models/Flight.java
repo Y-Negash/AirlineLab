@@ -94,7 +94,7 @@ public class Flight {
         this.passengers = passengers;
     }
 
-    public void addPassenger(Passenger passenger){
+    public void addPassenger(Passenger passenger) {
         this.passengers.add(passenger);
     }
 }

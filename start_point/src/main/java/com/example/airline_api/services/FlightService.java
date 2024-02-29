@@ -30,9 +30,21 @@ public class FlightService {
         return flightRepository.findById(id).get();
     }
 
-    public Flight addFlight(Flight flight) {
-       return flightRepository.save(flight);
-    }
+    public Flight addFlight(FlightDTO flightDTO) {
+
+        Flight flight = new Flight(
+                flightDTO.getDestination(),
+                flightDTO.getCapacity(),
+                flightDTO.getDepartureDate(),
+                flightDTO.getDepartureTime()
+        );
+
+            for(Long passengerIds : flightDTO.getPassenger_ids()){
+                Passenger passenger = passengerRepository.findById(passengerIds).get();
+                flight.addPassenger(passenger);
+            }
+            return flightRepository.save(flight);
+        }
 
     public Flight addPassenger(FlightDTO flightDTO, Long id) {
         Flight updatedFlight = flightRepository.findById(id).get();
@@ -42,7 +54,7 @@ public class FlightService {
         updatedFlight.setDepartureTime(flightDTO.getDepartureTime());
         updatedFlight.setPassengers(new ArrayList<>());
 
-        for (long passengerIds: flightDTO.getPassenger_id()){
+        for (long passengerIds: flightDTO.getPassenger_ids()){
             Passenger passenger = passengerRepository.findById(passengerIds).get();
             updatedFlight.addPassenger(passenger);
         }

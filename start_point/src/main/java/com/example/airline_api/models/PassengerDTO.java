@@ -7,12 +7,12 @@ public class PassengerDTO {
 
     private String name;
     private String email;
-    private List<Long> flight_id;
+    private List<Long> flight_ids;
 
-    public PassengerDTO(String name, String email, List<Long> flight_id) {
+    public PassengerDTO(String name, String email, List<Long> flight_ids) {
         this.name = name;
         this.email = email;
-        this.flight_id = flight_id;
+        this.flight_ids = flight_ids;
     }
 
     public PassengerDTO() {
@@ -34,11 +34,11 @@ public class PassengerDTO {
         this.email = email;
     }
 
-    public List<Long> getFlight_id() {
-        return flight_id;
+    public List<Long> getFlight_ids() {
+        return flight_ids;
     }
 
-    public void setFlight_id(List<Long> flight_id) {
-        this.flight_id = flight_id;
+    public void setFlight_ids(List<Long> flight_ids) {
+        this.flight_ids = flight_ids;
     }
 }
