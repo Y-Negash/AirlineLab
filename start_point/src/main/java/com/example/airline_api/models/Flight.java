@@ -26,11 +26,11 @@ public class Flight {
     @Column
     private String departureTime;
 
-    @JsonIgnoreProperties({"passengers"})
+    @JsonIgnoreProperties({"flights"})
     @ManyToMany
     @JoinTable(
             name = "bookings",
-            joinColumns = @JoinColumn(name = "flights_id"),
+            joinColumns = @JoinColumn(name = "flight_id"),
             inverseJoinColumns =  @JoinColumn(name = "passenger_id")
     )
     private List<Passenger> passengers;
